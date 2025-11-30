@@ -1,10 +1,9 @@
 // Navigation links used across the website
 export const usefulLinks = [
-  { id: 1, title: 'Home' },
-  { id: 2, title: 'About Us' },
-  { id: 3, title: 'Projects' },
-  { id: 4, title: 'Contact Us' }, // fixed id gap from 3 to 5
-  { id: 5, title: 'Privacy Policy' } // fixed id gap from 5 to 7
+  { id: 1, title: 'Ana Sayfa', path: '#home' },       // Home -> Ana Sayfa
+  { id: 2, title: 'Hakkımızda', path: '#about' },     // About Us -> Hakkımızda
+  { id: 3, title: 'Ekibimiz', path: '#team' },        // Projects yerine Team varsa
+  { id: 4, title: 'İletişim', path: '#contact' }      // Contact Us -> İletişim
 ];
 
 // Reasons to choose the company - could be shown on homepage or services page

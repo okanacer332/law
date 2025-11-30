@@ -85,18 +85,22 @@ const Navbar = ({
         <div className="offcanvas-body ms-lg-auto d-flex flex-column h-100 offcavas-bg">
           {/* Navigation links */}
           <ul className="navbar-nav align-items-lg-center">
-            {/* Each nav item closes offcanvas on click */}
+            {/* GÜNCELLEME: Linkler artık sayfa içi ID'lere (#) yönleniyor.
+                Böylece sayfa yenilenmeden aşağıya kayacak.
+            */}
             <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href="/" title="Ana Sayfa" className="nav-link" />
+              <NextLink href="#home" title="Ana Sayfa" className="nav-link" />
             </li>
             <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href="#" title="Hakkımızda" className="nav-link" />
+              <NextLink href="#about" title="Hakkımızda" className="nav-link" />
             </li>
             <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href="#" title="Hizmetlerimiz" className="nav-link" />
+              {/* Hizmetlerimiz veya Çalışma Alanlarımız bölümüne gider */}
+              <NextLink href="#services" title="Hizmetlerimiz" className="nav-link" />
             </li>
             <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href="#" title="İletişim" className="nav-link" />
+              {/* Footer veya İletişim bölümüne gider */}
+              <NextLink href="#contact" title="İletişim" className="nav-link" />
             </li>
           </ul>
 

@@ -25,7 +25,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-top footer-bg overflow-hidden">
+    <footer id="contact" className="border-top footer-bg overflow-hidden">
       <div className="container pt-10 pt-md-12 pb-7">
         <div className="row gx-10 justify-content-around">
 
