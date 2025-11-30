@@ -1,10 +1,15 @@
 //----------------------------------------------------------//
 //	HUKUK BÜROSU ÖZEL RENKLERİ (CUSTOM COLORS)
 //----------------------------------------------------------//
-// Oxford Blue (Ana Renk)
-$blue:    #002147; 
-// Metallic Gold (Vurgu Rengi)
-$yellow:  #D4AF37; 
+// Oxford Blue (Ana Renk) -> Senin Lacivertin
+$blue:    #0D2840; 
+// Metallic Gold (Vurgu Rengi) -> Senin Altın Rengin
+$yellow:  #BF9341; 
+
+// Ekstra Palet Tanımları
+$gold-muted: #A68A58; // Mat Altın
+$beige:      #F2ECCE; // Bej
+$gray-bg:    #F2F2F2; // Açık Gri Zemin
 
 //----------------------------------------------------------//
 //	OPTIONS
@@ -58,7 +63,7 @@ $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) 
 //----------------------------------------------------------//
 $white: #fff !default;
 $black: #000 !default;
-$gray-100: #fefefe !default;
+$gray-100: $gray-bg !default; // #F2F2F2 (Senin zemin rengin)
 $gray-200: #f6f7f9 !default;
 $gray-300: #cacaca !default;
 $gray-400: #aab0bc !default;
@@ -66,30 +71,30 @@ $gray-500: #959ca9 !default;
 $gray-600: #60697b !default;
 $gray-700: #2f353a !default;
 $gray-800: #21262c !default;
-$gray-900: #1e2228 !default;
+$gray-900: $blue !default;    // Koyu gri yerine senin Lacivertin (#0D2840)
 $error: #de4747 !default;
-$light: $gray-100 !default;
+
+$light: $beige !default;      // Light yerine Bej (#F2ECCE)
 $gray: $gray-200 !default;
-$dark: #262b32 !default;
+$dark: $blue !default;        // Dark yerine Lacivert (#0D2840)
 $inverse: $gray-300 !default;
 $border: #a4aec6 !default;
 $border-light: rgba($border, 0.2) !default;
 $box-layout-bg: #edeef1 !default;
-$shadow-border: #083c82 !default;
+$shadow-border: $blue !default;
 $feedback-success: #198754;
 $feedback-danger: #dc3545;
 
-// Ana rengi laciverte çevirdik
-$primary: $blue !default; 
+// Ana rengi (Primary) Altın yapıyoruz ki butonlar dikkat çeksin
+$primary: $yellow !default; 
 
 // Diğer renk tanımları (Orijinal yapıyı koruyoruz)
-// Not: $blue ve $yellow yukarıda tanımlandı
 $sky: #61dafb !default; 
 $purple: #6f42c1 !default;
-$grape: #6f42c1 !default; // Örnek değer
-$violet: #6f42c1 !default; // Örnek değer
+$grape: #6f42c1 !default; 
+$violet: #6f42c1 !default; 
 $pink: #d63384 !default;
-$fuchsia: #d63384 !default; // Örnek değer
+$fuchsia: #d63384 !default; 
 $red: #dc3545 !default;
 $orange: #fd7e14 !default;
 $green: #198754 !default;
@@ -121,11 +126,11 @@ $colors: (
   'primary': $primary
 ) !default;
 
-// İkincil rengi (Vurgu) Altın Sarısı yapıyoruz
-$secondary: $yellow !default; 
+// İkincil rengi (Secondary) Lacivert yapıyoruz
+$secondary: $blue !default; 
 
 $success: $green !default;
-$info: $aqua !default;
+$info: $gold-muted !default; // Info rengi senin Mat Altın rengin
 $warning: $yellow !default;
 $danger: $red !default;
 

@@ -32,8 +32,8 @@ const Footer = () => {
           {/* Logo and Company Description */}
           <div className="col-xl-3">
             <div className="widget d-flex flex-column align-items-center">
-              <div className="mb-5 d-flex justify-content-md-center justify-content-xxl-start w-100">
-                {/* SADECE BURASI GÜNCELLENDİ: logo.webp -> logo.jpeg */}
+               {/* <div className="mb-5 d-flex justify-content-md-center justify-content-xxl-start w-100">
+                SADECE BURASI GÜNCELLENDİ: logo.webp -> logo.jpeg 
                 <Image
                   src="/img/logo-removebg-preview.png"
                   alt="Logo | Adalet Hukuk"
@@ -43,9 +43,9 @@ const Footer = () => {
                   className="text-center"
                   style={{ objectFit: 'contain' }}
                 />
-              </div>
+              </div>*/}
               <p className="lead mb-2 text-md-center text-xl-start fs-18 roboto">
-                Adalet Hukuk Bürosu, güvenilir, yenilikçi ve çözüm odaklı hukuki danışmanlık hizmetleri sunmaktadır.
+                Akdeniz Avukatlik Bürosu, güvenilir, yenilikçi ve çözüm odaklı hukuki danışmanlık hizmetleri sunmaktadır.
               </p>
             </div>
 
@@ -69,7 +69,8 @@ const Footer = () => {
               <div className="d-flex mb-3 align-items-start">
                 <i className="uil uil-location-pin-alt fs-30 text-main" />
                 <address className="ms-2 m-0 mt-1 roboto">
-                  Kızılırmak Mah. Çukurambar, Ankara
+                  Mahmudiye Mah. Zeytinlibahçe Cad. Hisar İş Merkezi 5/10
+Akdeniz / MERSİN
                 </address>
               </div>
 
@@ -114,7 +115,7 @@ const Footer = () => {
           {/* Footer copyright */}
           <div className="d-md-flex align-items-center justify-content-center">
             <p className="mb-2 mb-lg-0 text-center roboto">
-              © {currentYear} Adalet Hukuk Bürosu. Tüm hakları saklıdır.
+              © {currentYear} AcrTech . Tüm hakları saklıdır.
             </p>
           </div>
         </div>

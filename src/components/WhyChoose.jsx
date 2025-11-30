@@ -28,13 +28,13 @@ const WhyChoose = () => {
       <div className="order-lg-1 col-lg-6">
         {/* Section label */}
         <h3 className="fs-16 py-2 px-3 text-main d-inline rounded-pill oswald">
-          Why Choose Us ?
+          Neden Bizi Secmelisiniz ?
         </h3>
 
         {/* Main headline */}
         <h2 className="mb-5 mt-3 justify-content-start oswald">
-          Transforming Residential
-          <span className="ms-2"> Construction</span> in Location
+          Baslik 1
+          <span className="ms-2"> Baslik Vurgusu</span> in Mersin
         </h2>
 
         {/* List of reasons with icons */}

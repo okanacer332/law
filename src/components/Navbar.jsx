@@ -110,16 +110,16 @@ const Navbar = ({
               <div className="d-flex align-items-center mb-5">
                 <i className="uil uil-envelope fs-32 text-main bg-white rounded-circle me-2" />
                 <p className="fs-16 text-center m-0">
-                  <a href="mailto:info@adalethukuk.com">info@adalethukuk.com</a>
+                  <a href="mailto:info@adalethukuk.com">info@avukatlikakdeniz.com.tr</a>
                 </p>
               </div>
               <div className="d-flex mb-5">
                 <i className="uil uil-phone-volume fs-32 text-main bg-white rounded-circle me-2" />
                 <p className="fs-18 text-center m-0 d-flex flex-column">
-                  <a href="tel:+903121234567">+90 312 123 45 67</a>
+                  <a href="tel:+903121234567">+90 539 235 9906</a>
                 </p>
               </div>
-              <SocialLinks />
+               {/*  <SocialLinks /> */}
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ const Home = () => {
 
       {/* Meta Information */}
       <Head>
-        <title>Buildify – Free Next.js Website Template for Contractors, Builders & Construction Companies</title>
+        <title>Akdeniz – Avukatlik</title>
         <meta name="description" content="Free Next.js website template for builders, contractors & construction firms – built with Bootstrap" />
       </Head>
 
@@ -31,10 +31,10 @@ const Home = () => {
         <section className="wrapper">
           <div className="container py-12 py-md-14">
             <About
-              headingH1="Welcome to "
-              span="Buildify"
-              para="Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque obcaecati odit fuga, velit cum temporibus autem soluta mollitia saepe porro..."
-              para2="Excepturi accusamus delectus velit consequuntur! Eum quod modi velit aut molestias, cum animi voluptates eaque!"
+              headingH1="Akdeniz Avukatlık "
+              span="Hoşgeldiniz"
+              para="Uzman ve deneyimli kadromuz ile sizlerleyiz. bla bla bla "
+              para2="Alt mesaj 2"
               imgPosition="left"
               src="/img/welcome-to-constructions.webp"
             />

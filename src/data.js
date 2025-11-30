@@ -36,39 +36,21 @@ export const whyChoose = [
 export const teamMembers = [
   {
     id: 1,
-    name: 'Av. Mehmet Yılmaz',
+    name: 'Av. Mazlum VAROL',
     role: 'Kurucu Ortak / Ceza Hukuku',
     bio: 'Ankara Hukuk Fakültesi mezunu. 20 yıllık tecrübesiyle ağır ceza davalarında uzmanlaşmıştır.'
   },
   {
     id: 2,
-    name: 'Av. Ayşe Demir',
+    name: 'Av. Abdullah Birkan ÖLMEZ',
     role: 'Kıdemli Avukat / Aile Hukuku',
     bio: 'Boşanma, velayet ve miras davalarında 1000+ dava tecrübesi. Arabuluculuk sertifikasına sahiptir.'
   },
   {
     id: 3,
-    name: 'Av. Burak Çelik',
+    name: 'Av. Mustafa Hakan CÜCELER',
     role: 'Ortak / Ticaret Hukuku',
     bio: 'Şirketler hukuku ve uluslararası sözleşmeler konusunda uzman. İngilizce ve Almanca bilmektedir.'
-  },
-  {
-    id: 4,
-    name: 'Av. Zeynep Kaya',
-    role: 'Avukat / İş Hukuku',
-    bio: 'İşe iade ve tazminat davalarında uzmanlaşmıştır. İşçi ve işveren uyuşmazlıklarında danışmanlık vermektedir.'
-  },
-  {
-    id: 5,
-    name: 'Av. Can Yıldız',
-    role: 'Avukat / İcra ve İflas',
-    bio: 'İcra takiplerinin yürütülmesi ve iflas erteleme süreçlerinde geniş deneyim sahibidir.'
-  },
-  {
-    id: 6,
-    name: 'Av. Elif Şahin',
-    role: 'Stajyer Avukat',
-    bio: 'Hukuk fakültesini dereceyle bitirmiş, büromuzda yasal stajını yapmaktadır.'
   }
 ];
 
