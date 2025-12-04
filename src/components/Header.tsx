@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +12,21 @@ export function Header() {
     <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-3xl text-gray-800">Adalet Hukuk</h1>
+          {/* Logo Section */}
+          <div className="flex-shrink-0 flex items-center">
+            {/* DEĞİŞİKLİK: 
+                className içindeki 'h-12' (48px) değeri 'h-16' (64px) olarak değiştirildi.
+                Bu sayede logo biraz daha büyük görünecek.
+            */}
+            <Image
+              src="/logo.jpeg" 
+              alt="Adalet Hukuk Logo"
+              width={200} 
+              height={60} 
+              // h-16 (64px) yüksekliğe sabitler, w-auto en boy oranını korur.
+              className="h-20 w-auto object-contain" 
+              priority 
+            />
           </div>
 
           {/* Desktop Navigation */}

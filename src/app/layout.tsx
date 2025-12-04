@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Adalet Hukuk - Güvenilir Hukuk Danışmanlığı",
+  title: "Akdeniz Hukuk",
   description: "Uzman kadromuz ile her türlü hukuki konuda yanınızdayız.",
 };
 
