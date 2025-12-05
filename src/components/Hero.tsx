@@ -31,7 +31,7 @@ export function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="group bg-amber-600 text-white px-8 py-4 rounded-full hover:bg-amber-700 hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2">
-                Sizi Arayalım
+                Ekibimiz
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="bg-white text-gray-800 px-8 py-4 rounded-full hover:bg-gray-50 hover:shadow-lg transition-all duration-300 border-2 border-gray-800">
