@@ -31,20 +31,30 @@ const mainArticles = [
     tag: 'Ticaret Hukuku',
     image: 'https://images.unsplash.com/photo-1633158108216-f10cd3202d8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBsYXclMjBkb2N1bWVudHN8ZW58MXx8fHwxNzY0ODMwMjY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
     gradient: 'from-orange-500 to-red-500'
+  },
+  {
+    id: 4,
+    title: 'Kişisel Verilerin Korunması ve KVKK Süreçleri',
+    excerpt: 'Şirketlerin KVKK uyum süreçlerinde yükümlülükleri ve veri güvenliği adımları...',
+    author: 'Av. Selin Kaya',
+    date: '22 Kasım 2025',
+    tag: 'Bilişim Hukuku',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlciUyMHNlY3VyaXR5JTIwbGF3fGVufDF8fHx8MTc2NDgzMDI2NXww&ixlib=rb-4.1.0&q=80&w=1080',
+    gradient: 'from-emerald-500 to-teal-500'
   }
 ];
 
 const sidebarArticles = [
-  { id: 4, title: 'Miras Hukukunda Saklı Pay Nedir?', tag: 'Miras Hukuku', date: '20 Kasım 2025' },
-  { id: 5, title: 'Tüketici Hakları ve Korunma Yolları', tag: 'Tüketici Hukuku', date: '18 Kasım 2025' },
-  { id: 6, title: 'Kira Sözleşmelerinde Yasal Haklar', tag: 'Gayrimenkul Hukuku', date: '15 Kasım 2025' },
-  { id: 7, title: 'Şirket Kuruluşunda Dikkat Edilecekler', tag: 'Ticaret Hukuku', date: '12 Kasım 2025' },
-  { id: 8, title: 'İcra Takibi ve Yasal Süreçler', tag: 'İcra Hukuku', date: '10 Kasım 2025' },
-  { id: 9, title: 'İdari Dava Açma Koşulları', tag: 'İdare Hukuku', date: '8 Kasım 2025' },
-  { id: 10, title: 'Ceza Davalarında Savunma Hakları', tag: 'Ceza Hukuku', date: '5 Kasım 2025' },
-  { id: 11, title: 'İş Yerinde Mobbing ve Hukuki Yollar', tag: 'İş Hukuku', date: '3 Kasım 2025' },
-  { id: 12, title: 'Gayrimenkul Alım Satımında Dikkat', tag: 'Gayrimenkul Hukuku', date: '1 Kasım 2025' },
-  { id: 13, title: 'Borçlar Hukuku Temel Prensipleri', tag: 'Borçlar Hukuku', date: '28 Ekim 2025' }
+  { id: 5, title: 'Miras Hukukunda Saklı Pay Nedir?', tag: 'Miras Hukuku', date: '20 Kasım 2025' },
+  { id: 6, title: 'Tüketici Hakları ve Korunma Yolları', tag: 'Tüketici Hukuku', date: '18 Kasım 2025' },
+  { id: 7, title: 'Kira Sözleşmelerinde Yasal Haklar', tag: 'Gayrimenkul Hukuku', date: '15 Kasım 2025' },
+  { id: 8, title: 'Şirket Kuruluşunda Dikkat Edilecekler', tag: 'Ticaret Hukuku', date: '12 Kasım 2025' },
+  { id: 9, title: 'İcra Takibi ve Yasal Süreçler', tag: 'İcra Hukuku', date: '10 Kasım 2025' },
+  { id: 10, title: 'İdari Dava Açma Koşulları', tag: 'İdare Hukuku', date: '8 Kasım 2025' },
+  { id: 11, title: 'Ceza Davalarında Savunma Hakları', tag: 'Ceza Hukuku', date: '5 Kasım 2025' },
+  { id: 12, title: 'İş Yerinde Mobbing ve Hukuki Yollar', tag: 'İş Hukuku', date: '3 Kasım 2025' },
+  { id: 13, title: 'Gayrimenkul Alım Satımında Dikkat', tag: 'Gayrimenkul Hukuku', date: '1 Kasım 2025' },
+  { id: 14, title: 'Borçlar Hukuku Temel Prensipleri', tag: 'Borçlar Hukuku', date: '28 Ekim 2025' }
 ];
 
 export function Blog() {
@@ -65,9 +75,10 @@ export function Blog() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Main Articles - 3 Columns */}
+          {/* Main Articles - 3 Columns -> now fits 4 items in 2x2 grid */}
           <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {/* DEĞİŞİKLİK: xl:grid-cols-3 kaldırıldı, böylece 2x2 dengeli bir görünüm sağlandı */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {mainArticles.map((article) => (
                 <article
                   key={article.id}
@@ -113,6 +124,14 @@ export function Blog() {
                 </article>
               ))}
             </div>
+
+            {/* DEĞİŞİKLİK: Grid'in hemen altına Tüm Makaleleri Gör butonu eklendi */}
+            <div className="mt-10 flex justify-center md:justify-start">
+                <button className="group bg-gray-900 text-white px-8 py-3.5 rounded-full hover:bg-amber-600 hover:shadow-xl transition-all duration-300 flex items-center gap-2 text-sm font-medium">
+                  Tüm Makaleleri Gör
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+            </div>
           </div>
 
           {/* Sidebar - Scrollable Articles */}
@@ -124,7 +143,7 @@ export function Blog() {
               </div>
               
               <div className="space-y-3 max-h-[650px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-gray-100">
-                {sidebarArticles.map((article, index) => (
+                {sidebarArticles.map((article) => (
                   <div
                     key={article.id}
                     className="group bg-gradient-to-br from-gray-50 to-amber-50/50 p-4 rounded-xl border border-gray-100 hover:border-amber-300 hover:shadow-md transition-all cursor-pointer hover:-translate-y-0.5"
