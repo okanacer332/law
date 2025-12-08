@@ -33,10 +33,12 @@ const services = [
   }
 ];
 
+
 export function Services() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Üst Kısım - Başlıklar */}
         <div className="text-center mb-20">
           <div className="inline-block bg-amber-600 text-white px-4 py-1 rounded-full text-sm mb-4">
             Hizmetlerimiz
@@ -49,6 +51,7 @@ export function Services() {
           </p>
         </div>
 
+        {/* Hizmet Kartları Grid Yapısı */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service) => (
             <div
@@ -56,6 +59,7 @@ export function Services() {
               className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 flex flex-col"
             >
               <div className="relative h-64 overflow-hidden flex-shrink-0">
+
                 <ImageWithFallback
                   src={service.image}
                   alt={service.title}
@@ -89,16 +93,21 @@ export function Services() {
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
 
+        {/* Tüm Hizmetleri Görüntüle Butonu */}
         <div className="text-center">
-          <button className="group bg-gray-800 text-white px-10 py-4 rounded-full hover:bg-gray-700 hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 mx-auto">
+          <Link 
+            href="/hizmetlerimiz" 
+            className="group inline-flex bg-gray-800 text-white px-10 py-4 rounded-full hover:bg-gray-700 hover:shadow-2xl transition-all duration-300 items-center justify-center gap-2 mx-auto"
+          >
             Tüm Hizmetleri Görüntüle
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

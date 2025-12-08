@@ -125,7 +125,6 @@ export function Footer() {
             </ul>
           </div>
         </div>
-
         {/* Bottom Bar Wrapper */}
         <div className="border-t border-gray-800 pt-8">
             {/* Copyright & Links */}
@@ -144,6 +143,7 @@ export function Footer() {
                    <span className="font-bold text-gray-400">Yasal Uyarı:</span> "Bu internet sitesinde yer alan bilgiler, yalnızca bilgilendirme amaçlıdır ve hukuki tavsiye niteliği taşımaz. Bu sitedeki hiçbir bilgi, reklam amacı gütmez ve Türkiye Barolar Birliği'nin Reklam Yasağı Yönetmeliği'ne aykırı değildir. Site içeriğinin ziyaret edilmesi, avukat-müvekkil ilişkisi doğurmaz."
                 </p>
             </div>
+
         </div>
       </div>
     </footer>

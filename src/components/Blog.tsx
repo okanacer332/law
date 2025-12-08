@@ -57,7 +57,15 @@ const sidebarArticles = [
   { id: 14, title: 'Borçlar Hukuku Temel Prensipleri', tag: 'Borçlar Hukuku', date: '28 Ekim 2025' }
 ];
 
+
 export function Blog() {
+  // Öne çıkan (Featured) veya ilk 3 makaleyi ana vitrin için alıyoruz
+  const mainArticles = blogs.filter(b => b.isFeatured).slice(0, 3);
+  
+  // Geri kalanları veya feature olmayanları sidebar için alıyoruz
+  // (Eğer featured olmayan yoksa, id'si 3'ten büyükleri al diyebiliriz)
+  const sidebarArticles = blogs.filter(b => !b.isFeatured);
+
   return (
     <section className="py-24 bg-gradient-to-br from-gray-50 to-amber-50/30" id="blog">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,11 +90,11 @@ export function Blog() {
               {mainArticles.map((article) => (
                 <article
                   key={article.id}
-                  className="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-1"
+                  className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-1 flex flex-col"
                 >
-                  <div className="relative h-56 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden flex-shrink-0">
                     <ImageWithFallback
-                      src={article.image}
+                      src={article.image || ''}
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -96,12 +104,16 @@ export function Blog() {
                     </div>
                   </div>
                   
-                  <div className="p-6">
-                    <h3 className="text-xl mb-3 group-hover:text-amber-600 transition-colors leading-snug">{article.title}</h3>
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-xl mb-3 group-hover:text-amber-600 transition-colors leading-snug font-bold">
+                        {article.title}
+                    </h3>
                     
-                    <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">{article.excerpt}</p>
+                    <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed flex-1">
+                        {article.excerpt}
+                    </p>
                     
-                    <div className="flex items-center gap-4 text-xs text-gray-500 mb-5 pb-5 border-b border-gray-100">
+                    <div className="flex items-center gap-4 text-xs text-gray-500 mb-5 pb-5 border-b border-gray-100 mt-auto">
                       <div className="flex items-center gap-1">
                         <User className="w-3 h-3" />
                         <span>{article.author}</span>
@@ -119,6 +131,7 @@ export function Blog() {
                       <button className="flex-1 bg-amber-600 text-white px-4 py-2.5 rounded-xl hover:bg-amber-700 transition-all text-sm">
                         Devamı
                       </button>
+
                     </div>
                   </div>
                 </article>
@@ -139,14 +152,17 @@ export function Blog() {
             <div className="bg-white rounded-2xl p-6 sticky top-24 shadow-lg border border-gray-100">
               <div className="flex items-center gap-2 mb-6">
                 <div className="h-1 w-8 bg-amber-600 rounded-full"></div>
-                <h3 className="text-xl">Diğer Makaleler</h3>
+                <h3 className="text-xl font-bold">Diğer Makaleler</h3>
               </div>
               
               <div className="space-y-3 max-h-[650px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-gray-100">
                 {sidebarArticles.map((article) => (
+
                   <div
+
                     key={article.id}
-                    className="group bg-gradient-to-br from-gray-50 to-amber-50/50 p-4 rounded-xl border border-gray-100 hover:border-amber-300 hover:shadow-md transition-all cursor-pointer hover:-translate-y-0.5"
+                    href={`/blog/${article.slug}`}
+                    className="block group/item bg-gradient-to-br from-gray-50 to-amber-50/50 p-4 rounded-xl border border-gray-100 hover:border-amber-300 hover:shadow-md transition-all cursor-pointer hover:-translate-y-0.5"
                   >
                     <div className="flex items-start gap-2 mb-2">
                       <div className="bg-amber-600 text-white text-xs px-2 py-1 rounded-lg">
@@ -154,13 +170,15 @@ export function Blog() {
                       </div>
                     </div>
                     
-                    <h4 className="text-sm mb-2 group-hover:text-amber-600 transition-colors leading-snug">{article.title}</h4>
+                    <h4 className="text-sm mb-2 group-hover/item:text-amber-600 transition-colors leading-snug font-medium">
+                        {article.title}
+                    </h4>
                     
                     <div className="flex items-center gap-1 text-xs text-gray-500">
                       <Calendar className="w-3 h-3" />
                       <span>{article.date}</span>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
