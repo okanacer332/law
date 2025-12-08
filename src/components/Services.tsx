@@ -1,5 +1,6 @@
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link'; // <--- BU SATIR EKLENDİ
 
 const services = [
   {
@@ -17,7 +18,6 @@ const services = [
     subtitle: 'Mersin Boşanma Avukatı',
     description: 'Aile hukuku uyuşmazlıklarında önceliğimiz, süreci müvekkillerimiz için en az yıpratıcı şekilde yönetmektir.',
     details: 'Çekişmeli Boşanma & İstinaf Süreci',
-    // Guncellendi: Calismayan .png yerine Unsplash gorseli geri getirildi
     image: 'https://images.unsplash.com/photo-1633158108216-f10cd3202d8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBsYXclMjBkb2N1bWVudHN8ZW58MXx8fHwxNzY0ODMwMjY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
     gradient: 'from-purple-600 to-pink-600'
   },
@@ -27,7 +27,6 @@ const services = [
     subtitle: 'Mersin Ticaret Avukatı',
     description: 'Mersin’in ticari dinamiklerine hakim ofisimiz, şirketlerin kuruluşundan tasfiyesine kadar tüm süreçlerde yanınızdadır.',
     details: 'Şirketler Hukuku & Danışmanlık',
-    // Guncellendi: Calismayan .png yerine Unsplash gorseli geri getirildi
     image: 'https://images.unsplash.com/photo-1758518731462-d091b0b4ed0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGxhdyUyMGNvbnRyYWN0fGVufDF8fHx8MTc2NDgzMDI2NHww&ixlib=rb-4.1.0&q=80&w=1080',
     gradient: 'from-orange-600 to-red-600'
   }

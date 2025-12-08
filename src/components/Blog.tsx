@@ -1,6 +1,8 @@
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import { ArrowRight, User, Calendar, Tag, TrendingUp } from 'lucide-react';
+import Link from 'next/link'; // EKLENDİ
 
+// Sabit veriler
 const mainArticles = [
   {
     id: 1,
@@ -57,14 +59,9 @@ const sidebarArticles = [
   { id: 14, title: 'Borçlar Hukuku Temel Prensipleri', tag: 'Borçlar Hukuku', date: '28 Ekim 2025' }
 ];
 
-
 export function Blog() {
-  // Öne çıkan (Featured) veya ilk 3 makaleyi ana vitrin için alıyoruz
-  const mainArticles = blogs.filter(b => b.isFeatured).slice(0, 3);
-  
-  // Geri kalanları veya feature olmayanları sidebar için alıyoruz
-  // (Eğer featured olmayan yoksa, id'si 3'ten büyükleri al diyebiliriz)
-  const sidebarArticles = blogs.filter(b => !b.isFeatured);
+  // NOT: Aşağıdaki 'blogs' değişkeni tanımlı olmadığı için hata veriyordu.
+  // Yukarıdaki sabit 'mainArticles' ve 'sidebarArticles' dizilerini doğrudan kullanıyoruz.
 
   return (
     <section className="py-24 bg-gradient-to-br from-gray-50 to-amber-50/30" id="blog">
@@ -83,9 +80,8 @@ export function Blog() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Main Articles - 3 Columns -> now fits 4 items in 2x2 grid */}
+          {/* Main Articles */}
           <div className="lg:col-span-3">
-            {/* DEĞİŞİKLİK: xl:grid-cols-3 kaldırıldı, böylece 2x2 dengeli bir görünüm sağlandı */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {mainArticles.map((article) => (
                 <article
@@ -131,14 +127,12 @@ export function Blog() {
                       <button className="flex-1 bg-amber-600 text-white px-4 py-2.5 rounded-xl hover:bg-amber-700 transition-all text-sm">
                         Devamı
                       </button>
-
                     </div>
                   </div>
                 </article>
               ))}
             </div>
 
-            {/* DEĞİŞİKLİK: Grid'in hemen altına Tüm Makaleleri Gör butonu eklendi */}
             <div className="mt-10 flex justify-center md:justify-start">
                 <button className="group bg-gray-900 text-white px-8 py-3.5 rounded-full hover:bg-amber-600 hover:shadow-xl transition-all duration-300 flex items-center gap-2 text-sm font-medium">
                   Tüm Makaleleri Gör
@@ -157,11 +151,9 @@ export function Blog() {
               
               <div className="space-y-3 max-h-[650px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-gray-100">
                 {sidebarArticles.map((article) => (
-
-                  <div
-
+                  <Link
                     key={article.id}
-                    href={`/blog/${article.slug}`}
+                    href="#" 
                     className="block group/item bg-gradient-to-br from-gray-50 to-amber-50/50 p-4 rounded-xl border border-gray-100 hover:border-amber-300 hover:shadow-md transition-all cursor-pointer hover:-translate-y-0.5"
                   >
                     <div className="flex items-start gap-2 mb-2">
