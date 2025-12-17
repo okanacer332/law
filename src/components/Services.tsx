@@ -1,6 +1,6 @@
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link'; // <--- BU SATIR EKLENDİ
+import Link from 'next/link';
 
 const services = [
   {
@@ -32,20 +32,19 @@ const services = [
   }
 ];
 
-
 export function Services() {
   return (
-    <section className="py-24 bg-white" id="services">
+    <section className="py-24 bg-[#1a2a4a]" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Üst Kısım - Başlıklar */}
         <div className="text-center mb-20">
-          <div className="inline-block bg-amber-600 text-white px-4 py-1 rounded-full text-sm mb-4">
+          <div className="inline-block bg-[#c9a962]/10 border border-[#c9a962]/30 text-[#c9a962] px-4 py-1 rounded-full text-sm mb-4 font-medium backdrop-blur-sm">
             Hizmetlerimiz
           </div>
-          <h2 className="text-5xl mb-6 text-gray-900">
+          <h2 className="text-5xl mb-6 text-white font-bold tracking-tight">
             Size Nasıl Yardımcı Olabiliriz?
           </h2>
-          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
+          <p className="text-gray-300 text-xl max-w-2xl mx-auto font-light">
             Tüm hukuki ihtiyaçlarınız için profesyonel ve güvenilir çözümler sunuyoruz
           </p>
         </div>
@@ -55,10 +54,13 @@ export function Services() {
           {services.map((service) => (
             <div
               key={service.id}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 flex flex-col"
+              // KART TASARIMI GÜNCELLEMESİ:
+              // bg-white/95: Hafif transparan beyaz arka plan
+              // border-2 border-[#1a2a4a]/20: Varsayılan kenarlık (koyu lacivert tonunda, silik)
+              // hover:border-[#c9a962]: Hover durumunda kenarlık Gold oluyor
+              className="group relative bg-white/95 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1a2a4a]/20 hover:border-[#c9a962] hover:-translate-y-2 flex flex-col"
             >
               <div className="relative h-64 overflow-hidden flex-shrink-0">
-
                 <ImageWithFallback
                   src={service.image}
                   alt={service.title}
@@ -68,31 +70,30 @@ export function Services() {
               </div>
               
               <div className="p-8 flex flex-col flex-grow">
-                {/* Subtitle: Başlığın üstünde, 9px, sola hizalı ve amber renginde */}
-                <div className="text-[9px] text-amber-600 font-bold uppercase tracking-widest mb-2 text-left">
+                {/* Subtitle: Gold renk (#c9a962) */}
+                <div className="text-[10px] text-[#c9a962] font-bold uppercase tracking-widest mb-3 text-left">
                   {service.subtitle}
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-tight uppercase">
+                <h3 className="text-2xl font-bold text-[#1a2a4a] mb-3 leading-tight uppercase">
                   {service.title}
                 </h3>
 
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-gray-600 mb-5 leading-relaxed">
                   {service.description}
                 </p>
 
-                {/* Detay Alanı */}
-                <div className="text-gray-800 font-medium text-sm mb-6 border-l-4 border-amber-100 pl-3 py-1">
+                {/* Detay Alanı: Gold border */}
+                <div className="text-gray-700 font-medium text-sm mb-8 border-l-4 border-[#c9a962] pl-3 py-1">
                   {service.details}
                 </div>
 
                 <div className="mt-auto">
-                    <button className="group/btn flex items-center gap-2 text-gray-800 hover:text-amber-600 hover:gap-3 transition-all font-medium">
-                    Detaylı Bilgi
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <button className="group/btn flex items-center gap-2 text-[#1a2a4a] hover:text-[#c9a962] transition-colors font-bold tracking-wide">
+                      Detaylı Bilgi
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                 </div>
-
               </div>
             </div>
           ))}
@@ -102,7 +103,7 @@ export function Services() {
         <div className="text-center">
           <Link 
             href="/hizmetlerimiz" 
-            className="group inline-flex bg-gray-800 text-white px-10 py-4 rounded-full hover:bg-gray-700 hover:shadow-2xl transition-all duration-300 items-center justify-center gap-2 mx-auto"
+            className="group inline-flex bg-[#c9a962] text-[#1a2a4a] px-10 py-4 rounded-full hover:bg-[#d4bc7e] hover:shadow-[0_0_20px_rgba(201,169,98,0.4)] transition-all duration-300 items-center justify-center gap-2 mx-auto font-bold text-lg"
           >
             Tüm Hizmetleri Görüntüle
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

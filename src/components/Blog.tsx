@@ -1,6 +1,6 @@
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
-import { ArrowRight, User, Calendar, Tag, TrendingUp } from 'lucide-react';
-import Link from 'next/link'; // EKLENDİ
+import { ArrowRight, User, Calendar, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 
 // Sabit veriler
 const mainArticles = [
@@ -60,18 +60,16 @@ const sidebarArticles = [
 ];
 
 export function Blog() {
-  // NOT: Aşağıdaki 'blogs' değişkeni tanımlı olmadığı için hata veriyordu.
-  // Yukarıdaki sabit 'mainArticles' ve 'sidebarArticles' dizilerini doğrudan kullanıyoruz.
-
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-amber-50/30" id="blog">
+    <section className="py-24 bg-[#f8f6f1]" id="blog">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Üst Kısım */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-white px-4 py-1 rounded-full text-sm mb-4 shadow-sm">
-            <TrendingUp className="w-4 h-4 text-amber-600" />
-            <span className="text-amber-600">Blog & Makaleler</span>
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1 rounded-full text-sm mb-4 shadow-sm border border-[#1a2a4a]/10">
+            <TrendingUp className="w-4 h-4 text-[#1a2a4a]" />
+            <span className="text-[#1a2a4a] font-medium">Blog & Makaleler</span>
           </div>
-          <h2 className="text-5xl mb-6 text-gray-900">
+          <h2 className="text-5xl mb-6 text-[#1a2a4a] font-bold">
             Güncel Hukuk Haberleri
           </h2>
           <p className="text-gray-600 text-xl max-w-2xl mx-auto">
@@ -95,13 +93,13 @@ export function Blog() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-t ${article.gradient} opacity-40 group-hover:opacity-50 transition-opacity`}></div>
-                    <div className={`absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm text-gray-800`}>
+                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-[#1a2a4a]">
                       {article.tag}
                     </div>
                   </div>
                   
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl mb-3 group-hover:text-amber-600 transition-colors leading-snug font-bold">
+                    <h3 className="text-xl mb-3 group-hover:text-[#c9a962] transition-colors leading-snug font-bold text-[#1a2a4a]">
                         {article.title}
                     </h3>
                     
@@ -111,20 +109,23 @@ export function Blog() {
                     
                     <div className="flex items-center gap-4 text-xs text-gray-500 mb-5 pb-5 border-b border-gray-100 mt-auto">
                       <div className="flex items-center gap-1">
-                        <User className="w-3 h-3" />
+                        <User className="w-3 h-3 text-[#c9a962]" />
                         <span>{article.author}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
+                        <Calendar className="w-3 h-3 text-[#c9a962]" />
                         <span>{article.date}</span>
                       </div>
                     </div>
                     
+                    {/* BUTONLAR GÜNCELLENDİ */}
                     <div className="flex gap-2">
-                      <button className="flex-1 bg-gray-800 text-white px-4 py-2.5 rounded-xl hover:bg-gray-700 hover:shadow-lg transition-all text-sm">
+                      {/* Secondary Button: Benzer */}
+                      <button className="flex-1 bg-white text-[#1a2a4a] border border-[#1a2a4a] px-4 py-2.5 rounded-xl hover:bg-[#1a2a4a] hover:text-white transition-all text-sm font-medium">
                         Benzer
                       </button>
-                      <button className="flex-1 bg-amber-600 text-white px-4 py-2.5 rounded-xl hover:bg-amber-700 transition-all text-sm">
+                      {/* Primary Button: Devamı (Eski turuncu buton) */}
+                      <button className="flex-1 bg-[#1a2a4a] text-white px-4 py-2.5 rounded-xl hover:bg-[#1a2a4a]/90 transition-all text-sm font-bold">
                         Devamı
                       </button>
                     </div>
@@ -134,40 +135,40 @@ export function Blog() {
             </div>
 
             <div className="mt-10 flex justify-center md:justify-start">
-                <button className="group bg-gray-900 text-white px-8 py-3.5 rounded-full hover:bg-amber-600 hover:shadow-xl transition-all duration-300 flex items-center gap-2 text-sm font-medium">
+                <button className="group bg-[#1a2a4a] text-white px-8 py-3.5 rounded-full hover:bg-[#1a2a4a]/90 hover:shadow-xl transition-all duration-300 flex items-center gap-2 text-sm font-bold">
                   Tüm Makaleleri Gör
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
             </div>
           </div>
 
-          {/* Sidebar - Scrollable Articles */}
+          {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl p-6 sticky top-24 shadow-lg border border-gray-100">
               <div className="flex items-center gap-2 mb-6">
-                <div className="h-1 w-8 bg-amber-600 rounded-full"></div>
-                <h3 className="text-xl font-bold">Diğer Makaleler</h3>
+                <div className="h-1 w-8 bg-[#1a2a4a] rounded-full"></div>
+                <h3 className="text-xl font-bold text-[#1a2a4a]">Diğer Makaleler</h3>
               </div>
               
-              <div className="space-y-3 max-h-[650px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-gray-100">
+              <div className="space-y-3 max-h-[650px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#1a2a4a]/20 scrollbar-track-gray-100">
                 {sidebarArticles.map((article) => (
                   <Link
                     key={article.id}
                     href="#" 
-                    className="block group/item bg-gradient-to-br from-gray-50 to-amber-50/50 p-4 rounded-xl border border-gray-100 hover:border-amber-300 hover:shadow-md transition-all cursor-pointer hover:-translate-y-0.5"
+                    className="block group/item bg-gray-50 p-4 rounded-xl border border-gray-100 hover:border-[#1a2a4a] hover:shadow-md transition-all cursor-pointer hover:-translate-y-0.5"
                   >
                     <div className="flex items-start gap-2 mb-2">
-                      <div className="bg-amber-600 text-white text-xs px-2 py-1 rounded-lg">
+                      <div className="bg-[#1a2a4a] text-white text-[10px] font-bold px-2 py-1 rounded-lg uppercase tracking-wider">
                         {article.tag}
                       </div>
                     </div>
                     
-                    <h4 className="text-sm mb-2 group-hover/item:text-amber-600 transition-colors leading-snug font-medium">
+                    <h4 className="text-sm mb-2 group-hover/item:text-[#1a2a4a] transition-colors leading-snug font-semibold text-gray-800">
                         {article.title}
                     </h4>
                     
                     <div className="flex items-center gap-1 text-xs text-gray-500">
-                      <Calendar className="w-3 h-3" />
+                      <Calendar className="w-3 h-3 text-[#c9a962]" />
                       <span>{article.date}</span>
                     </div>
                   </Link>

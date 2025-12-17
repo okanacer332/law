@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    darkMode: "class", // Düzeltilen kısım burası
+    darkMode: "class",
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,6 +10,18 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+            // YENİ EKLENEN RENKLER
+            navy: {
+                DEFAULT: '#1a2a4a', // Ana lacivert (Menü, footer, metin)
+                dark: '#0f1a2e',    // Koyu lacivert (Hero overlay, koyu alanlar)
+            },
+            gold: {
+                DEFAULT: '#c9a962', // Altın (Buton, vurgu)
+                light: '#d4bc7e',   // Açık altın (Hover)
+            },
+            cream: '#f8f6f1',       // Krem (Arka plan alternatif)
+            
+            // Mevcut shadcn renkleri (Gerekirse bunları da güncelleyebiliriz ama şimdilik özel renkleri kullanacağız)
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
