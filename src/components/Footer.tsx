@@ -64,10 +64,35 @@ export function Footer() {
         {/* Alt Kısım: Telif Hakkı ve Sosyal Medya */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             
-            {/* Telif Hakkı */}
-            <p className="text-gray-500 text-sm text-center md:text-left">
-              &copy; 2025 Adalet Hukuk. Tüm hakları saklıdır.
-            </p>
+            {/* Telif Hakkı ve ACR Tech İmzası */}
+            <div className="flex items-center gap-2 text-gray-500 text-sm">
+              <span>&copy; 2025</span>
+              
+              {/* Tıklanabilir Logo Alanı */}
+              <a 
+                href="https://acrtech.com.tr" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:opacity-80 hover:scale-105 transition-all inline-flex items-center"
+                title="ACR Tech Yazılım ve Teknoloji"
+              >
+                {/* SVG Kodunu Buraya Yapıştırıyoruz */}
+                <svg 
+                  width="80" 
+                  height="24" 
+                  viewBox="0 0 100 30" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-auto" // Yüksekliği satıra uyarladık
+                >
+                  {/* Burası örnek bir placeholder. Kendi SVG path'lerinizi buraya yapıştırın */}
+                  <rect width="100" height="30" rx="4" fill="#c9a962"/>
+                  <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#0f1a2e" fontSize="12" fontWeight="bold">ACR TECH</text>
+                </svg>
+              </a>
+
+              <span>. Tüm hakları saklıdır.</span>
+            </div>
 
             {/* Sosyal Medya İkonları (Sağ Alt) */}
             <div className="flex gap-4">
