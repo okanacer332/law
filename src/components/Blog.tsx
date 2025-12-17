@@ -1,5 +1,5 @@
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
-import { ArrowRight, User, Calendar, TrendingUp } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import Link from 'next/link';
 
 interface BlogProps {
@@ -18,7 +18,7 @@ export function Blog({ posts }: BlogProps) {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {posts.map((post) => (
                 <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                     <div className="relative h-56">
@@ -28,7 +28,7 @@ export function Blog({ posts }: BlogProps) {
                             className="w-full h-full object-cover"
                         />
                         <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-[#1a2a4a]">
-                            {post.categories?.nodes[0]?.name || 'Hukuk'}
+                             Blog
                         </div>
                     </div>
                     <div className="p-6">
@@ -52,6 +52,17 @@ export function Blog({ posts }: BlogProps) {
                 </article>
             ))}
         </div>
+
+        {/* EKLENEN KISIM: TÜM BLOGLAR BUTONU */}
+        <div className="text-center">
+            <Link 
+            href="/blog" 
+            className="inline-block bg-[#1a2a4a] text-white px-8 py-3.5 rounded-full hover:bg-[#1a2a4a]/90 hover:shadow-xl transition-all duration-300 items-center gap-2 text-sm font-bold"
+            >
+                Tüm Makaleleri Gör
+            </Link>
+        </div>
+
       </div>
     </section>
   );

@@ -2,13 +2,11 @@ import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-// Gelen verinin tipini tanımlayalım
 interface ServiceProps {
-  services: any[]; // Şimdilik any, ilerde detaylandırabiliriz
+  services: any[];
 }
 
 export function Services({ services }: ServiceProps) {
-  // Eğer hiç hizmet yoksa (Panel boşsa) gösterme veya loading göster
   if (!services || services.length === 0) return null;
 
   return (
@@ -31,7 +29,6 @@ export function Services({ services }: ServiceProps) {
             >
               <div className="relative h-64 overflow-hidden flex-shrink-0">
                 <ImageWithFallback
-                  // WordPress'ten resim gelmezse varsayılan bir resim koy
                   src={service.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73'}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -44,7 +41,6 @@ export function Services({ services }: ServiceProps) {
                   {service.title}
                 </h3>
 
-                {/* İçeriğin HTML etiketlerini temizleyip kısa özet göstermek için basit bir yöntem */}
                 <div 
                     className="text-gray-600 mb-5 leading-relaxed line-clamp-3"
                     dangerouslySetInnerHTML={{ __html: service.content || '' }}
@@ -60,6 +56,18 @@ export function Services({ services }: ServiceProps) {
             </div>
           ))}
         </div>
+
+        {/* EKLENEN KISIM: TÜM HİZMETLER BUTONU */}
+        <div className="text-center">
+          <Link 
+            href="/hizmetlerimiz" 
+            className="group inline-flex bg-[#c9a962] text-[#1a2a4a] px-10 py-4 rounded-full hover:bg-[#d4bc7e] hover:shadow-[0_0_20px_rgba(201,169,98,0.4)] transition-all duration-300 items-center justify-center gap-2 mx-auto font-bold text-lg"
+          >
+            Tüm Hizmetleri Görüntüle
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
       </div>
     </section>
   );

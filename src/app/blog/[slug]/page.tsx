@@ -1,110 +1,108 @@
-import { blogs } from '@/data/blogs';
+import { fetchAPI } from '@/lib/api';
+import { GET_POST_BY_SLUG } from '@/lib/queries';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
-import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { StickyContact } from '@/components/StickyContact';
+import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-interface BlogDetailProps {
-  params: Promise<{
-    slug: string;
-  }>;
-}
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
 
-export async function generateStaticParams() {
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
-}
+  const data = await fetchAPI(GET_POST_BY_SLUG, {
+    variables: { slug: slug }
+  });
 
-export default async function BlogDetailPage(props: BlogDetailProps) {
-  const params = await props.params;
-  const blog = blogs.find((b) => b.slug === params.slug);
-
-  if (!blog) {
+  if (!data?.post) {
     notFound();
   }
+
+  const post = data.post;
+  
+  // Kategori ismini al (yoksa 'Genel' yazsın)
+  const categoryName = post.categories?.nodes[0]?.name || 'Hukuk Blogu';
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
       <main>
-        {/* Hero Section */}
+        {/* HERO SECTION */}
         <div className="relative h-[50vh] min-h-[450px] w-full overflow-hidden">
-          {/* Eğer resim yoksa default bir gradient göster */}
-          {blog.image ? (
-             <ImageWithFallback
-             src={blog.image}
-             alt={blog.title}
-             className="w-full h-full object-cover"
-           />
-          ) : (
-            <div className={`w-full h-full bg-gradient-to-r ${blog.gradient || 'from-gray-800 to-gray-900'}`}></div>
-          )}
-         
-          <div className="absolute inset-0 bg-black/50" />
+          <ImageWithFallback
+            src={post.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1505664194779-8beaceb93744'}
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
+          {/* Karartma Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
           
-          <div className="absolute inset-0 flex items-center">
+          <div className="absolute inset-0 flex items-center justify-center">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+              
+              {/* Geri Dön Butonu */}
               <Link 
-                href="/#blog" 
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm"
+                href="/blog" 
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm hover:bg-white/20"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Blog Yazılarına Dön
               </Link>
               
+              {/* Kategori Etiketi */}
               <div className="flex justify-center mb-6">
-                <span className="bg-amber-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                    {blog.tag}
+                <span className="bg-[#c9a962] text-[#1a2a4a] px-4 py-1 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
+                    <Tag className="w-3 h-3" />
+                    {categoryName}
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                {blog.title}
+              {/* Başlık */}
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-md">
+                {post.title}
               </h1>
 
-              <div className="flex flex-wrap items-center justify-center gap-6 text-white/90 text-sm md:text-base">
-                <div className="flex items-center gap-2">
-                    <User className="w-4 h-4 text-amber-500" />
-                    <span>{blog.author}</span>
+              {/* Meta Bilgiler (Yazar & Tarih) */}
+              <div className="flex flex-wrap items-center justify-center gap-6 text-white/90 text-sm md:text-base font-medium">
+                <div className="flex items-center gap-2 bg-black/30 px-3 py-1.5 rounded-lg backdrop-blur-sm">
+                    <User className="w-4 h-4 text-[#c9a962]" />
+                    <span>{post.author?.node?.name || 'Editör'}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-amber-500" />
-                    <span>{blog.date}</span>
+                <div className="flex items-center gap-2 bg-black/30 px-3 py-1.5 rounded-lg backdrop-blur-sm">
+                    <Calendar className="w-4 h-4 text-[#c9a962]" />
+                    <span>{new Date(post.date).toLocaleDateString('tr-TR')}</span>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
 
-        {/* Content Section */}
+        {/* İÇERİK ALANI */}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="bg-white">
-            {/* Blog İçeriği Stil Tanımları */}
+            {/* Hizmet detayındaki gibi 'prose' sınıfını kullanarak 
+                WordPress'ten gelen HTML'i otomatik stillendiriyoruz.
+            */}
             <div 
               className="
-                text-gray-700 leading-8 text-lg
-                [&_p]:mb-6
-                [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:mt-10 [&_h3]:mb-4
-                [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-8 [&_ul]:space-y-3
-                [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-8 [&_ol]:space-y-3
-                [&_li]:text-gray-700
-                [&_strong]:font-semibold [&_strong]:text-gray-900
-                [&_.lead]:text-xl [&_.lead]:font-medium [&_.lead]:text-gray-600
-                [&_blockquote]:border-l-4 [&_blockquote]:border-amber-500 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:my-6
+                prose prose-lg max-w-none 
+                prose-headings:text-[#1a2a4a] prose-headings:font-bold 
+                prose-p:text-gray-700 prose-p:leading-8
+                prose-a:text-[#c9a962] prose-a:font-bold hover:prose-a:underline
+                prose-strong:text-[#1a2a4a]
+                prose-li:marker:text-[#c9a962]
+                prose-blockquote:border-l-[#c9a962] prose-blockquote:bg-gray-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:not-italic
               "
-              dangerouslySetInnerHTML={{ __html: blog.content }} 
+              dangerouslySetInnerHTML={{ __html: post.content }} 
             />
             
-            {/* Paylaş / Etiket Alanı (Opsiyonel görsel doluluk için) */}
+            {/* Alt Etiket Alanı */}
             <div className="mt-12 pt-8 border-t border-gray-100 flex justify-between items-center">
-                <div className="flex gap-2">
-                    <Tag className="w-4 h-4 text-gray-400" />
-                    <span className="text-gray-500 text-sm">Etiket: {blog.tag}</span>
+                <div className="flex gap-2 text-gray-500 text-sm">
+                    Etiket: <span className="font-semibold text-[#1a2a4a]">{categoryName}</span>
                 </div>
             </div>
           </div>
