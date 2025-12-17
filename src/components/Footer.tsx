@@ -1,147 +1,88 @@
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Info } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white pb-28 pt-20">
+    <footer className="bg-[#0f1a2e] text-white pt-20 pb-10 border-t border-[#0f1a2e]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Company Info */}
-          <div>
-            <h3 className="text-3xl text-amber-500 mb-6">Adalet Hukuk</h3>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              Profesyonel hukuk hizmetleri ile adalet ve güven için yanınızdayız.
+        
+        {/* Üst Kısım: 3 Sütunlu Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+          
+          {/* Sol: Logo ve Açıklama */}
+          <div className="flex flex-col items-start">
+            <div className="bg-white/5 p-2 rounded-lg mb-6 inline-block">
+                <Image
+                  src="/logo.jpeg" 
+                  alt="Adalet Hukuk Logo"
+                  width={180} 
+                  height={60} 
+                  className="h-12 w-auto object-contain mix-blend-screen" 
+                />
+            </div>
+            <p className="text-gray-400 leading-relaxed text-sm">
+              Hukuki süreçlerinizde güvenilir çözüm ortağınız. 
+              Deneyimli kadromuzla adalet arayışınızda yanınızdayız.
             </p>
-            <div className="flex gap-3">
-              <a href="#" className="bg-white/10 hover:bg-amber-600 p-3 rounded-full transition-all duration-300 hover:scale-110">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-white/10 hover:bg-amber-600 p-3 rounded-full transition-all duration-300 hover:scale-110">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-white/10 hover:bg-amber-600 p-3 rounded-full transition-all duration-300 hover:scale-110">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-white/10 hover:bg-amber-600 p-3 rounded-full transition-all duration-300 hover:scale-110">
-                <Linkedin className="w-5 h-5" />
-              </a>
+          </div>
+
+          {/* Orta: Hızlı Linkler */}
+          <div className="flex flex-col md:items-center">
+            <div className="text-left">
+                <h4 className="text-xl mb-6 font-semibold text-[#c9a962]">Hızlı Bağlantılar</h4>
+                <ul className="space-y-3">
+                <li><a href="#home" className="text-gray-400 hover:text-[#c9a962] transition-colors">Ana Sayfa</a></li>
+                <li><a href="#about" className="text-gray-400 hover:text-[#c9a962] transition-colors">Hakkımızda</a></li>
+                <li><a href="#services" className="text-gray-400 hover:text-[#c9a962] transition-colors">Hizmetlerimiz</a></li>
+                <li><a href="#blog" className="text-gray-400 hover:text-[#c9a962] transition-colors">Blog</a></li>
+                <li><a href="#contact" className="text-gray-400 hover:text-[#c9a962] transition-colors">İletişim</a></li>
+                </ul>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Sağ: İletişim Bilgileri */}
           <div>
-            <h4 className="text-xl mb-6 relative inline-block">
-              Hızlı Bağlantılar
-              <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-amber-600 -mb-2"></div>
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Ana Sayfa
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Hakkımızda
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Hizmetlerimiz
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  İletişim
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-xl mb-6 relative inline-block">
-              Hizmetlerimiz
-              <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 -mb-2"></div>
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Ceza Hukuku
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Aile Hukuku
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Ticaret Hukuku
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  İş Hukuku
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Gayrimenkul Hukuku
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-xl mb-6 relative inline-block">
-              İletişim
-              <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-amber-600 -mb-2"></div>
-            </h4>
+            <h4 className="text-xl mb-6 font-semibold text-[#c9a962]">İletişim</h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-gray-400 group hover:text-white transition-colors">
-                <div className="bg-amber-600 p-2 rounded-lg flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-white" />
-                </div>
-                <span>Atatürk Cad. No: 123<br />Çankaya, Ankara</span>
+              <li className="flex items-start gap-3 text-gray-400">
+                <MapPin className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Atatürk Cad. No: 123<br />Çankaya, Ankara</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400 group hover:text-white transition-colors">
-                <div className="bg-amber-600 p-2 rounded-lg">
-                  <Phone className="w-4 h-4 text-white" />
-                </div>
-                <span>+90 312 123 45 67</span>
+              <li className="flex items-center gap-3 text-gray-400">
+                <Phone className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
+                <span className="text-sm">+90 312 123 45 67</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400 group hover:text-white transition-colors">
-                <div className="bg-amber-600 p-2 rounded-lg">
-                  <Mail className="w-4 h-4 text-white" />
-                </div>
-                <span>info@adalethukuk.com</span>
+              <li className="flex items-center gap-3 text-gray-400">
+                <Mail className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
+                <span className="text-sm">info@adalethukuk.com</span>
               </li>
             </ul>
           </div>
-        </div>
-        {/* Bottom Bar Wrapper */}
-        <div className="border-t border-gray-800 pt-8">
-            {/* Copyright & Links */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
-                <p className="text-gray-400 text-sm">&copy; 2025 Adalet Hukuk. Tüm hakları saklıdır.</p>
-                <div className="flex gap-6 text-sm text-gray-400">
-                    <a href="#" className="hover:text-white transition-colors">Gizlilik Politikası</a>
-                    <a href="#" className="hover:text-white transition-colors">Kullanım Koşulları</a>
-                </div>
-            </div>
 
-            {/* Legal Disclaimer Section */}
-            <div className="flex items-start justify-center gap-2 text-[9px] text-gray-500 max-w-5xl mx-auto text-center leading-relaxed border-t border-gray-800/50 pt-6">
-                <Info className="w-3 h-3 flex-shrink-0 mt-0.5 text-gray-600" />
-                <p>
-                   <span className="font-bold text-gray-400">Yasal Uyarı:</span> "Bu internet sitesinde yer alan bilgiler, yalnızca bilgilendirme amaçlıdır ve hukuki tavsiye niteliği taşımaz. Bu sitedeki hiçbir bilgi, reklam amacı gütmez ve Türkiye Barolar Birliği'nin Reklam Yasağı Yönetmeliği'ne aykırı değildir. Site içeriğinin ziyaret edilmesi, avukat-müvekkil ilişkisi doğurmaz."
-                </p>
+        </div>
+
+        {/* Alt Kısım: Telif Hakkı ve Sosyal Medya */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            {/* Telif Hakkı */}
+            <p className="text-gray-500 text-sm text-center md:text-left">
+              &copy; 2025 Adalet Hukuk. Tüm hakları saklıdır.
+            </p>
+
+            {/* Sosyal Medya İkonları (Sağ Alt) */}
+            <div className="flex gap-4">
+              <a href="#" className="text-gray-400 hover:text-[#c9a962] transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10">
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-[#c9a962] transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10">
+                <Twitter className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-[#c9a962] transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10">
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-[#c9a962] transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10">
+                <Linkedin className="w-4 h-4" />
+              </a>
             </div>
 
         </div>
