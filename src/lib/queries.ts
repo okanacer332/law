@@ -1,7 +1,7 @@
 export const HOMEPAGE_QUERY = `
   query HomePageData {
-    # 1. Blog Yazıları
-    posts(first: 4, where: { orderby: { field: DATE, order: DESC } }) {
+    # 1. Blog Yazıları (Admin paneldeki sürükle-bırak sırasına göre)
+    posts(first: 4, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
       nodes {
         id
         title
@@ -14,11 +14,16 @@ export const HOMEPAGE_QUERY = `
             altText
           }
         }
+        categories {
+          nodes {
+            name
+          }
+        }
       }
     }
     
-    # 2. Hizmetler (Basitleştirilmiş)
-    hizmetler(first: 20) {
+    # 2. Hizmetler (Admin paneldeki sürükle-bırak sırasına göre)
+    hizmetler(first: 20, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
       nodes {
         id
         title
