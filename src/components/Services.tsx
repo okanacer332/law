@@ -23,9 +23,12 @@ export function Services({ services }: ServiceProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service) => (
-            <div
+            /* GÜNCELLEME: En dış katman div yerine Link oldu. 
+               Böylece kartın her yeri tıklanabilir. */
+            <Link
+              href={`/hizmetlerimiz/${service.slug}`}
               key={service.id}
-              className="group relative bg-white/95 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1a2a4a]/20 hover:border-[#c9a962] hover:-translate-y-2 flex flex-col"
+              className="group relative bg-white/95 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-[#1a2a4a]/20 hover:border-[#c9a962] hover:-translate-y-2 flex flex-col block"
             >
               <div className="relative h-64 overflow-hidden flex-shrink-0">
                 <ImageWithFallback
@@ -47,17 +50,19 @@ export function Services({ services }: ServiceProps) {
                 />
 
                 <div className="mt-auto">
-                    <Link href={`/hizmetlerimiz/${service.slug}`} className="group/btn flex items-center gap-2 text-[#1a2a4a] hover:text-[#c9a962] transition-colors font-bold tracking-wide">
+                    {/* GÜNCELLEME: Burası Link idi, şimdi görsel bir div oldu. 
+                        İç içe link hatası olmaması için. */}
+                    <div className="group/btn flex items-center gap-2 text-[#1a2a4a] hover:text-[#c9a962] transition-colors font-bold tracking-wide">
                       Detaylı Bilgi
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Link>
+                    </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
-        {/* EKLENEN KISIM: TÜM HİZMETLER BUTONU */}
+        {/* TÜM HİZMETLER BUTONU */}
         <div className="text-center">
           <Link 
             href="/hizmetlerimiz" 
