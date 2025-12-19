@@ -1,10 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Send, Phone, X, MessageSquare } from 'lucide-react';
 
 export function StickyContact() {
-  const [isOpen, setIsOpen] = useState(true);
+  // GÜNCELLEME 1: Başlangıç değeri 'false' yapıldı (Sayfa açılışında kapalı).
+  const [isOpen, setIsOpen] = useState(false);
+
+  // GÜNCELLEME 2: Header'dan gelen "Açıl" sinyalini dinleyen useEffect.
+  useEffect(() => {
+    const handleOpenModal = () => setIsOpen(true);
+    
+    // 'open-contact-modal' olayını dinle
+    window.addEventListener('open-contact-modal', handleOpenModal);
+    
+    // Temizlik (Component silinirse dinlemeyi bırak)
+    return () => window.removeEventListener('open-contact-modal', handleOpenModal);
+  }, []);
 
   // WhatsApp Numarası
   const whatsappNumber = "03121234567"; 
@@ -15,7 +27,7 @@ export function StickyContact() {
       {/* =============================================
         1. KAPALI DURUMDA GÖRÜNEN BUTONLAR (TRIGGER)
         =============================================
-        isOpen true ise: Aşağı kayarak kaybolur (translate-y-20 opacity-0)
+        isOpen true ise: Aşağı kayarak kaybolur (translate-y-32 opacity-0)
         isOpen false ise: Yukarı çıkarak görünür (translate-y-0 opacity-100)
       */}
       <div 
