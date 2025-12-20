@@ -77,18 +77,11 @@ export function Footer() {
                 title="ACR Tech Yazılım ve Teknoloji"
               >
                 {/* SVG Kodunu Buraya Yapıştırıyoruz */}
-                <svg 
-                  width="80" 
-                  height="24" 
-                  viewBox="0 0 100 30" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-auto" // Yüksekliği satıra uyarladık
-                >
-                  {/* Burası örnek bir placeholder. Kendi SVG path'lerinizi buraya yapıştırın */}
-                  <rect width="100" height="30" rx="4" fill="#c9a962"/>
-                  <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#0f1a2e" fontSize="12" fontWeight="bold">ACR TECH</text>
-                </svg>
+                <img 
+              src="/acrtech.jpeg" 
+              alt="ACR Tech" 
+              className="h-8 w-auto rounded-sm" // Köşeleri hafif yumuşatmak için rounded-sm ekledim
+            />
               </a>
 
               <span>. Tüm hakları saklıdır.</span>
