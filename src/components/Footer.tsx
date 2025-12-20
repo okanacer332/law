@@ -83,8 +83,6 @@ export function Footer() {
               className="h-8 w-auto rounded-sm" // Köşeleri hafif yumuşatmak için rounded-sm ekledim
             />
               </a>
-
-              <span>. Tüm hakları saklıdır.</span>
             </div>
 
             {/* Sosyal Medya İkonları (Sağ Alt) */}
