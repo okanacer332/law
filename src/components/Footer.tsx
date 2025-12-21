@@ -44,17 +44,26 @@ export function Footer() {
           <div>
             <h4 className="text-xl mb-6 font-semibold text-[#c9a962]">İletişim</h4>
             <ul className="space-y-4">
+              {/* ADRES GÜNCELLEMESİ BURADA YAPILDI */}
               <li className="flex items-start gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
-                <span className="text-sm">Mahmudiye Mah. Zeytinlibahçe Cd. Hisar İş Merkezi Kat:5/10<br />Akdeniz/Mersin</span>
+                <span className="text-sm">
+                    Mahmudiye Mah. Zeytinlibahçe Cd.<br />
+                    Hisar İş Merkezi Kat:5/10<br />
+                    Akdeniz/Mersin
+                </span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
-                <span className="text-sm">+90 533 312 8586</span>
+                <span className="text-sm">0 533 312 85 86</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
-                <span className="text-sm">+90 538 542 1830</span>
+                <span className="text-sm">0 538 542 18 30</span>
+              </li>
+              <li className="flex items-center gap-3 text-gray-400">
+                <Phone className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
+                <span className="text-sm">0 539 235 99 06</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
@@ -68,11 +77,8 @@ export function Footer() {
         {/* Alt Kısım: Telif Hakkı ve Sosyal Medya */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             
-            {/* Telif Hakkı ve ACR Tech İmzası */}
             <div className="flex items-center gap-2 text-gray-500 text-sm">
               <span>&copy; 2025</span>
-              
-              {/* Tıklanabilir Logo Alanı */}
               <a 
                 href="https://acrtech.com.tr" 
                 target="_blank" 
@@ -80,16 +86,14 @@ export function Footer() {
                 className="hover:opacity-80 hover:scale-105 transition-all inline-flex items-center"
                 title="ACR Tech Yazılım ve Teknoloji"
               >
-                {/* SVG Kodunu Buraya Yapıştırıyoruz */}
                 <img 
               src="/acrtech.jpeg" 
               alt="ACR Tech" 
-              className="h-8 w-auto rounded-sm" // Köşeleri hafif yumuşatmak için rounded-sm ekledim
+              className="h-8 w-auto rounded-sm" 
             />
               </a>
             </div>
 
-            {/* Sosyal Medya İkonları (Sağ Alt) */}
             <div className="flex gap-4">
               <a href="#" className="text-gray-400 hover:text-[#c9a962] transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10">
                 <Facebook className="w-4 h-4" />

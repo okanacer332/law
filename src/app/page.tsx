@@ -1,8 +1,10 @@
 import { fetchAPI } from '@/lib/api';
-import { HOMEPAGE_QUERY } from '@/lib/queries'; 
+import { HOMEPAGE_QUERY } from '@/lib/queries';
+// Header layout'a taşındığı için buradan kaldırılmıştı, eğer hala varsa siliniz.
 import { Hero } from '@/components/Hero';
 import { Services } from '@/components/Services';
 import { Blog } from '@/components/Blog';
+import { Map } from '@/components/Map'; // YENİ: Map bileşenini import edin
 import { StickyContact } from '@/components/StickyContact';
 import { Footer } from '@/components/Footer';
 
@@ -21,12 +23,15 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-   
+      {/* Header layout.tsx içinde olduğu için buradan kaldırıldı */}
       <Hero />
       
       {/* Verileri prop olarak gönderiyoruz */}
       <Services services={services} />
       <Blog posts={posts} />
+      
+      {/* YENİ: Harita Bileşeni Blog ve Footer arasına eklendi */}
+      <Map />
       
       <StickyContact />
       <Footer />
