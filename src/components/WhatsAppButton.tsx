@@ -5,7 +5,7 @@ import { MessageCircle } from 'lucide-react';
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/903121234567" // Numaranızı buraya başında + olmadan ekleyin
+      href="https://wa.me/905392359906" // Numaranızı buraya başında + olmadan ekleyin
       target="_blank"
       rel="noopener noreferrer"
       // Mobilde: bottom-4 left-4, Masaüstünde: bottom-8 left-8

@@ -19,7 +19,7 @@ export function StickyContact() {
   }, []);
 
   // WhatsApp Numarası
-  const whatsappNumber = "03121234567"; 
+  const whatsappNumber = "905392359906"; 
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
   return (

@@ -46,11 +46,15 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
-                <span className="text-sm">Atatürk Cad. No: 123<br />Çankaya, Ankara</span>
+                <span className="text-sm">Mahmudiye Mah. Zeytinlibahçe Cd. Hisar İş Merkezi Kat:5/10<br />Akdeniz/Mersin</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
-                <span className="text-sm">+90 312 123 45 67</span>
+                <span className="text-sm">+90 533 312 8586</span>
+              </li>
+              <li className="flex items-center gap-3 text-gray-400">
+                <Phone className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
+                <span className="text-sm">+90 538 542 1830</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail className="w-5 h-5 text-[#c9a962] flex-shrink-0" />
