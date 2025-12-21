@@ -68,7 +68,7 @@ export function Services({ services }: ServiceProps) {
             href="/hizmetlerimiz" 
             className="group inline-flex bg-[#c9a962] text-[#1a2a4a] px-10 py-4 rounded-full hover:bg-[#d4bc7e] hover:shadow-[0_0_20px_rgba(201,169,98,0.4)] transition-all duration-300 items-center justify-center gap-2 mx-auto font-bold text-lg"
           >
-            Tüm Hizmetleri Görüntüle
+            Hizmetlerimiz
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
