@@ -134,18 +134,40 @@ export function Header({ menuItems = [] }: HeaderProps) {
           {/* Mobil Menü kısmını kısaltarak yazıyorum, mevcut kodunuzun geri kalanı aynı */}
           
           <div className="hidden md:flex items-center gap-3 border-l border-white/10 pl-6">
-            <div className="bg-[#c9a962]/10 p-2 rounded-full border border-[#c9a962]/30 animate-pulse">
+            <div className="bg-[#c9a962]/10 p-2 rounded-full border border-[#c9a962]/30 animate-pulse self-start mt-1">
                 <Phone className="w-4 h-4 text-[#c9a962]" />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
                 <span className="text-[10px] text-gray-300 uppercase tracking-widest leading-none mb-1">Bize Ulaşın</span>
+                
+                {/* Numara 1 */}
                 <a 
-                    href="https://wa.me/903121234567" 
+                    href="https://wa.me/905333128586" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="font-bold text-[#c9a962] hover:text-white transition-colors leading-none tracking-wide text-lg"
+                    className="font-bold text-[#c9a962] hover:text-white transition-colors leading-none tracking-wide text-sm"
                 >
-                    +90 312 123 45 67
+                    +90 533 312 85 86
+                </a>
+
+                {/* Numara 2 */}
+                <a 
+                    href="https://wa.me/905385421830" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#c9a962] hover:text-white transition-colors leading-none tracking-wide text-sm"
+                >
+                    +90 538 542 18 30
+                </a>
+
+                {/* Numara 3 */}
+                <a 
+                    href="https://wa.me/905392359906" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#c9a962] hover:text-white transition-colors leading-none tracking-wide text-sm"
+                >
+                    +90 539 235 99 06
                 </a>
             </div>
           </div>
