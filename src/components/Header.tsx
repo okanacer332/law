@@ -3,16 +3,24 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X, Phone } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link'; // GÜNCELLEME: Next.js Link bileşeni eklendi
+import Link from 'next/link';
 
-export function Header() {
+// 1. Tip tanımlaması ekliyoruz
+interface HeaderProps {
+  menuItems?: {
+    title: string;
+    slug: string;
+  }[];
+}
+
+// 2. Props'u bileşene alıyoruz (Varsayılan olarak boş dizi atıyoruz)
+export function Header({ menuItems = [] }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // 50px aşağı inildiğinde arka planı değiştir
       if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
@@ -24,11 +32,10 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // GÜNCELLEME: İletişim butonuna basıldığında StickyContact'ı açan fonksiyon
   const openContactForm = (e: React.MouseEvent) => {
-    e.preventDefault(); // Sayfa yenilemesini veya url değişimini engelle
-    setIsOpen(false);   // Mobil menüyü kapat (eğer açıksa)
-    window.dispatchEvent(new Event('open-contact-modal')); // StickyContact'a "Açıl" sinyali gönder
+    e.preventDefault();
+    setIsOpen(false);
+    window.dispatchEvent(new Event('open-contact-modal'));
   };
 
   return (
@@ -44,7 +51,7 @@ export function Header() {
           
           {/* Logo Section */}
           <div className={`flex-shrink-0 flex items-center bg-white/10 rounded-lg p-1 transition-all duration-300 ${isScrolled ? 'scale-90' : 'scale-100'}`}>
-            <Link href="/"> {/* GÜNCELLEME: Link ile sarıldı */}
+            <Link href="/">
               <Image
                 src="/logo.jpeg" 
                 alt="Adalet Hukuk Logo"
@@ -58,7 +65,6 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {/* GÜNCELLEME: Link href'leri '/#home' formatında mutlak yol yapıldı */}
             <Link href="/#home" className="text-gray-100 hover:text-[#c9a962] transition-colors relative group font-medium text-sm uppercase tracking-wide">
               Ana Sayfa
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c9a962] group-hover:w-full transition-all duration-300"></span>
@@ -68,7 +74,7 @@ export function Header() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c9a962] group-hover:w-full transition-all duration-300"></span>
             </Link>
             
-            {/* Services Dropdown */}
+            {/* Services Dropdown - DİNAMİK HALE GETİRİLDİ */}
             <div className="relative group">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -79,20 +85,29 @@ export function Header() {
                 <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
               </button>
               
+              {/* Dropdown Content */}
               {dropdownOpen && (
                 <div 
                   className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl py-3 border border-gray-100 animate-in fade-in slide-in-from-top-2 duration-200"
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <Link href="/hizmetlerimiz/ceza-hukuku" className="block px-6 py-3 text-[#1a2a4a] hover:bg-[#f8f6f1] hover:text-[#c9a962] transition-all font-medium">
-                    Ceza Hukuku
-                  </Link>
-                  <Link href="/hizmetlerimiz/aile-hukuku" className="block px-6 py-3 text-[#1a2a4a] hover:bg-[#f8f6f1] hover:text-[#c9a962] transition-all font-medium">
-                    Aile Hukuku
-                  </Link>
-                  <Link href="/hizmetlerimiz/ticaret-hukuku" className="block px-6 py-3 text-[#1a2a4a] hover:bg-[#f8f6f1] hover:text-[#c9a962] transition-all font-medium">
-                    Ticaret Hukuku
-                  </Link>
+                  {/* 3. Dinamik Mapping: Gelen menuItems dizisini dönüyoruz */}
+                  {menuItems.map((item, index) => (
+                    <Link 
+                      key={index}
+                      href={`/hizmetlerimiz/${item.slug}`} 
+                      className="block px-6 py-3 text-[#1a2a4a] hover:bg-[#f8f6f1] hover:text-[#c9a962] transition-all font-medium"
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+
+                  {/* Eğer hiç veri gelmezse veya yüklenirken boş görünmemesi için fallback koyabilirsiniz (opsiyonel) */}
+                  {menuItems.length === 0 && (
+                     <span className="block px-6 py-3 text-gray-400 text-sm">Yükleniyor...</span>
+                  )}
+
+                  {/* Tüm Hizmetler Linki (Sabit) */}
                   <Link href="/hizmetlerimiz" className="block px-6 py-3 text-[#1a2a4a] hover:bg-[#f8f6f1] hover:text-[#c9a962] transition-all font-medium border-t border-gray-100 mt-1">
                     Tüm Hizmetler
                   </Link>
@@ -105,7 +120,6 @@ export function Header() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c9a962] group-hover:w-full transition-all duration-300"></span>
             </Link>
             
-            {/* GÜNCELLEME: İletişim butonu özel fonksiyonu tetikliyor */}
             <a 
               href="#contact" 
               onClick={openContactForm}
@@ -116,14 +130,15 @@ export function Header() {
             </a>
           </nav>
 
-          {/* Sağ Taraf: Telefon Numarası */}
+          {/* ... Sağ taraf (Telefon) ve Mobil Menü Kodları aynı kalacak ... */}
+          {/* Mobil Menü kısmını kısaltarak yazıyorum, mevcut kodunuzun geri kalanı aynı */}
+          
           <div className="hidden md:flex items-center gap-3 border-l border-white/10 pl-6">
             <div className="bg-[#c9a962]/10 p-2 rounded-full border border-[#c9a962]/30 animate-pulse">
                 <Phone className="w-4 h-4 text-[#c9a962]" />
             </div>
             <div className="flex flex-col">
                 <span className="text-[10px] text-gray-300 uppercase tracking-widest leading-none mb-1">Bize Ulaşın</span>
-                {/* GÜNCELLEME: Telefon linki WhatsApp'a yönlendiriyor */}
                 <a 
                     href="https://wa.me/903121234567" 
                     target="_blank" 
@@ -135,7 +150,6 @@ export function Header() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 rounded-xl hover:bg-white/10 transition-colors"
@@ -148,21 +162,22 @@ export function Header() {
         {isOpen && (
           <div className="md:hidden animate-in fade-in slide-in-from-top-4 duration-200 bg-[#1a2a4a] border-t border-[#1a2a4a] shadow-2xl absolute left-0 right-0 top-full">
             <div className="flex flex-col space-y-4 p-6">
-              {/* GÜNCELLEME: Mobil menü linkleri de mutlak yol oldu */}
               <Link href="/#home" onClick={() => setIsOpen(false)} className="text-gray-100 hover:text-[#c9a962] transition-colors px-4 py-2 rounded-lg hover:bg-white/5 font-medium">
                 Ana Sayfa
               </Link>
               <Link href="/#about" onClick={() => setIsOpen(false)} className="text-gray-100 hover:text-[#c9a962] transition-colors px-4 py-2 rounded-lg hover:bg-white/5 font-medium">
                 Hakkımızda
               </Link>
+              
+              {/* Mobilde sadece ana linki gösteriyoruz, dropdown açmıyoruz, bu daha iyi bir UX */}
               <Link href="/#services" onClick={() => setIsOpen(false)} className="text-gray-100 hover:text-[#c9a962] transition-colors px-4 py-2 rounded-lg hover:bg-white/5 font-medium">
                 Hizmetlerimiz
               </Link>
+
               <Link href="/#blog" onClick={() => setIsOpen(false)} className="text-gray-100 hover:text-[#c9a962] transition-colors px-4 py-2 rounded-lg hover:bg-white/5 font-medium">
                 Blog
               </Link>
               
-              {/* GÜNCELLEME: Mobil İletişim butonu da formu açıyor */}
               <a 
                 href="#contact" 
                 onClick={openContactForm} 
@@ -171,10 +186,8 @@ export function Header() {
                 İletişim
               </a>
               
-              {/* Mobil Menü Telefon */}
               <div className="flex items-center gap-3 pt-4 px-4 border-t border-white/10 mt-2">
                 <Phone className="w-5 h-5 text-[#c9a962]" />
-                {/* GÜNCELLEME: Mobil telefon da WhatsApp oldu */}
                 <a 
                   href="https://wa.me/903121234567" 
                   target="_blank" 

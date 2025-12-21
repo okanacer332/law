@@ -104,3 +104,14 @@ export const BLOG_PAGE_QUERY = `
     }
   }
 `;
+
+export const MENU_SERVICES_QUERY = `
+  query MenuServices {
+    hizmetler(first: 5, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      nodes {
+        title
+        slug
+      }
+    }
+  }
+`;

@@ -1,6 +1,5 @@
 import { fetchAPI } from '@/lib/api';
-import { HOMEPAGE_QUERY } from '@/lib/queries';
-import { Header } from '@/components/Header';
+import { HOMEPAGE_QUERY } from '@/lib/queries'; 
 import { Hero } from '@/components/Hero';
 import { Services } from '@/components/Services';
 import { Blog } from '@/components/Blog';
@@ -22,7 +21,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+   
       <Hero />
       
       {/* Verileri prop olarak gönderiyoruz */}
