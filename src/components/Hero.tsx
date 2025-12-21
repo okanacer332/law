@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link'; // Link bileşenini import ettik
 
 export function Hero() {
   return (
@@ -21,10 +22,8 @@ export function Hero() {
 
       {/* Content Container - Sola hizalı */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex items-center">
-        <div className="max-w-2xl text-left pt-20"> {/* Header payı */}
+        <div className="max-w-2xl text-left pt-20">
             
-            {/* Logo Alanı Kaldırıldı */}
-
             {/* Ana Başlık */}
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-[1.1] tracking-tight text-white animate-in fade-in slide-in-from-left-6 duration-1000 delay-200">
                 Modern Vizyon, <br />
@@ -36,15 +35,24 @@ export function Hero() {
                 Her türlü hukuki meselenizde deneyimli kadromuzla güvenilir çözümler sunuyoruz.
             </p>
 
-            {/* Butonlar */}
+            {/* Butonlar - GÜNCELLENDİ */}
             <div className="flex flex-col sm:flex-row gap-5 animate-in fade-in slide-in-from-left-10 duration-1000 delay-500">
-                <button className="group bg-[#c9a962] text-[#1a2a4a] px-8 py-4 rounded-full hover:bg-[#d4bc7e] hover:shadow-[0_0_20px_rgba(201,169,98,0.4)] transition-all duration-300 flex items-center justify-center gap-2 font-bold text-lg">
-                    Ekibimizle Tanışın
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="bg-transparent text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300 border-2 border-white/30 backdrop-blur-sm font-semibold text-lg">
+                {/* 1. Buton: Hizmetlerimiz */}
+                <Link 
+                    href="/hizmetlerimiz" 
+                    className="group bg-[#c9a962] text-[#1a2a4a] px-8 py-4 rounded-full hover:bg-[#d4bc7e] hover:shadow-[0_0_20px_rgba(201,169,98,0.4)] transition-all duration-300 flex items-center justify-center gap-2 font-bold text-lg"
+                >
                     Hizmetlerimiz
-                </button>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                
+                {/* 2. Buton: Blog */}
+                <Link 
+                    href="/blog" 
+                    className="bg-transparent text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300 border-2 border-white/30 backdrop-blur-sm font-semibold text-lg flex items-center justify-center"
+                >
+                    Blog
+                </Link>
             </div>
         </div>
       </div>
